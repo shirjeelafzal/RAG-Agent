@@ -1,10 +1,15 @@
+Here's an updated version of the README file that reflects the changes made to your `Basic-RAG` project and the introduction of the `agent.py` file. The new README includes a description of the conversation feature and the use of the `create_react_agent` functionality.
+
+---
+
 # Basic-RAG
 
-This project, "Basic-RAG" (Retrieval-Augmented Generation), is a Python-based implementation that uses LangChain to build a simple Retrieval-Augmented Generation pipeline. The pipeline uses a language model to answer questions by retrieving relevant documents from a knowledge source (in this case, a web article) and augmenting responses with contextual information.
+This project, "Basic-RAG" (Retrieval-Augmented Generation), is a Python-based implementation that uses LangChain to build a simple Retrieval-Augmented Generation pipeline. The pipeline utilizes a language model to answer questions by retrieving relevant documents from a knowledge source (in this case, a web article) and augmenting responses with contextual information.
 
 ## Project Structure
 
-- **app.py**: Main script that sets up the RAG pipeline and runs it with a sample question.
+- **app.py**: Main script that sets up the RAG pipeline and runs it with a sample question. It includes conversation features that maintain chat history for better context in responses.
+- **agent.py**: An alternative script that utilizes a React agent to handle conversation and retrieval tasks interactively.
 - **requirements.txt**: Lists all required Python packages.
 - **sample.env**: Example environment variables needed for the project, which you can rename to `.env` after configuring.
 
@@ -56,13 +61,25 @@ This project, "Basic-RAG" (Retrieval-Augmented Generation), is a Python-based im
 
 ## Running the Project
 
+### Using `app.py`
+
 Run the project using the following command:
 
 ```bash
 python app.py
 ```
 
-This will output a response to the question, "What is Task Decomposition?" based on the document retrieved from the specified web source.
+This will initiate a conversation where you can ask questions, and the system will respond using the context retrieved from the specified web source.
+
+### Using `agent.py`
+
+Alternatively, you can run the agent script, which also allows for interactive questioning:
+
+```bash
+python agent.py
+```
+
+This script uses a React agent to stream responses to your queries in real-time.
 
 ## Code Walkthrough
 
@@ -72,9 +89,9 @@ This will output a response to the question, "What is Task Decomposition?" based
 - **Retriever Setup**: Uses the vector store to retrieve relevant document chunks based on a similarity search.
 - **Pipeline Configuration**: Sets up a LangChain pipeline using a retrieval-augmented generation approach.
 - **Pipeline Execution**: Invokes the pipeline with a sample question and outputs the response.
+- **Conversation Feature**: Both scripts maintain chat history, allowing the AI to provide context-aware answers based on previous interactions.
 
 ## Cleanup
 
 The script deletes the vector store collection at the end to free up resources.
-
 
